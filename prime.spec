@@ -14,6 +14,7 @@ Release:      %{release}
 URL:          http://sourceforge.jp/projects/prime/
 Source0:      %{name}-%{version}.tar.bz2
 Group:        System/Internationalization
+BuildRoot:    %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 License:      GPL
 Obsoletes:       uim-prime <= 0.4.6-1.beta2.3mdk
 Requires:        prime-dict >= %{dict_version}
