@@ -66,7 +66,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc ChangeLog COPYING README TODO
 %{_sysconfdir}/*
 %{_datadir}/%name
-%{_docdir}/%name
 %{_bindir}/*
 
 %files -n %{libname}
