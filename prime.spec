@@ -1,5 +1,5 @@
 %define version	        1.0.0.1
-%define release         %mkrel 4
+%define release         %mkrel 5
 
 %define dict_version    1.0.0
 %define suikyo_version  2.1.0-2
