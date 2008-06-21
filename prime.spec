@@ -1,11 +1,8 @@
 %define version	        1.0.0.1
-%define release         %mkrel 5
+%define release         %mkrel 6
 
 %define dict_version    1.0.0
 %define suikyo_version  2.1.0-2
-
-%define libname_orig lib%{name}
-%define libname %mklibname %{name} 0
 
 Name:         prime
 Summary:      PRIME is Japanese PRedictive Input Method Editor
@@ -21,20 +18,23 @@ Requires:        prime-dict >= %{dict_version}
 Requires:        suikyo >= %{suikyo_version}
 Requires:        ruby-progressbar
 Requires:        ruby-sary >= 1.2.0
-Requires:        %{libname} = %{version}
 BuildRequires:   ruby
+Obsoletes:	lib64prime0 < %version-%release
+Obsoletes:	libprime0 < %version-%release
+Buildarch:	noarch
 
 %description
 PRIME is Japanese PRedictive Input Method Editor.
 
+%package devel
+Summary: Development files for prime
+Group: Development/Other
+Requires: %name = %version
+Conflicts: lib64prime0 < %version-%release
+Conflicts: libprime0 < %version-%release
 
-%package -n %{libname}
-Summary:    Prime library
-Group:      System/Internationalization
-Provides:   %{libname_orig} = %{version}-%{release}
-
-%description -n %{libname}
-Prime library.
+%description devel
+This package contains development files for prime.
 
 
 %prep
@@ -43,8 +43,7 @@ Prime library.
 %build
 [[ ! -x configure ]] && ./autogen.sh
 
-%configure2_5x
-# parallel build is broken:
+%configure2_5x --with-rubydir=%{ruby_sitelibdir}
 make
 
 %install
@@ -57,24 +56,14 @@ cp -f etc/Custom_prime.rb $RPM_BUILD_ROOT/%{_sysconfdir}/prime/
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%if %mdkversion < 200900
-%post -n %{libname} -p /sbin/ldconfig
-%endif
-%if %mdkversion < 200900
-%postun -n %{libname} -p /sbin/ldconfig
-%endif
-
-
 %files
 %defattr(-,root,root)
 %doc ChangeLog COPYING README TODO
 %{_sysconfdir}/*
 %{_datadir}/%name
 %{_bindir}/*
+%{ruby_sitelibdir}/*
 
-%files -n %{libname}
+%files devel
 %defattr(-,root,root)
-%doc COPYING
-%{_libdir}/*
-
-
+%{_libdir}/pkgconfig/*.pc
