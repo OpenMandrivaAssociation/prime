@@ -1,5 +1,5 @@
 %define version	        1.0.0.1
-%define release         %mkrel 6
+%define release         %mkrel 7
 
 %define dict_version    1.0.0
 %define suikyo_version  2.1.0-2
@@ -19,9 +19,7 @@ Requires:        suikyo >= %{suikyo_version}
 Requires:        ruby-progressbar
 Requires:        ruby-sary >= 1.2.0
 BuildRequires:   ruby
-Obsoletes:	lib64prime0 < %version-%release
-Obsoletes:	libprime0 < %version-%release
-Buildarch:	noarch
+Obsoletes:	%{mklibname prime 0} < %version-%release
 
 %description
 PRIME is Japanese PRedictive Input Method Editor.
