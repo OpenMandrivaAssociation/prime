@@ -1,11 +1,11 @@
 %define version	        1.0.0.1
-%define release         %mkrel 7
+%define release         %mkrel 8
 
 %define dict_version    1.0.0
 %define suikyo_version  2.1.0-2
 
 Name:         prime
-Summary:      PRIME is Japanese PRedictive Input Method Editor
+Summary:      Japanese PRedictive Input Method Editor
 Version:      %{version}
 Release:      %{release}
 URL:          http://sourceforge.jp/projects/prime/
