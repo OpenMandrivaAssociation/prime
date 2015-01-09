@@ -7,7 +7,7 @@ Name:         prime
 Summary:      Japanese PRedictive Input Method Editor
 
 Version:      1.0.0.1
-Release:      9
+Release:      11
 URL:          http://sourceforge.jp/projects/prime/
 Source0:      %{name}-%{version}.tar.bz2
 Group:        System/Internationalization
@@ -28,6 +28,7 @@ Summary: Development files for prime
 
 Group: Development/Other
 Requires: %{name} = %{version}
+Requires: suikyo-devel >= %{suikyo_version}
 Conflicts: lib64prime0 < %{version}-%{release}
 Conflicts: libprime0 < %{version}-%{release}
 
