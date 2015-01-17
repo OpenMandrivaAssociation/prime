@@ -7,7 +7,7 @@ Name:         prime
 Summary:      Japanese PRedictive Input Method Editor
 
 Version:      1.0.0.1
-Release:      11
+Release:      12
 URL:          http://sourceforge.jp/projects/prime/
 Source0:      %{name}-%{version}.tar.bz2
 Group:        System/Internationalization
