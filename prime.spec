@@ -8,7 +8,7 @@ Summary:      Japanese PRedictive Input Method Editor
 
 Version:      1.0.0.1
 Release:      13
-URL:          http://sourceforge.jp/projects/prime/
+URL:          https://sourceforge.jp/projects/prime/
 Source0:      %{name}-%{version}.tar.bz2
 Group:        System/Internationalization
 License:      GPL
